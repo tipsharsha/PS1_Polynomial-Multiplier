@@ -120,6 +120,7 @@ def polymul_ntt(a, b):
 
     # point-wise multiplication
     cntt = antt.pointwise(bntt)
+    print(f"the pointwise poly multiplication {cntt}")
 
     # trnasform the result back to normal domain
     c = invntt_naive(cntt, root)
@@ -133,10 +134,10 @@ if __name__ == "__main__":
     # n-1 is the degree of the polynomials
     # q has the condition that  ( q - 1 ) % (2n - 1) is 0, i.e. ( 2n - 1 ) is a factor of ( q - 1 )
     # Additionally, q has to be a prime
-    coeff_a = [3,2,1]
-    coeff_b = [0,1,1]
-    a = Poly(coeff_a, q=11)
-    b = Poly(coeff_b, q=11)
+    coeff_a = [4,5,6,7,8,9]
+    coeff_b = [2,6,9,4,3,0]
+    a = Poly(coeff_a, q=23)
+    b = Poly(coeff_b, q=23)
 
     print("a(x) =", a)
     print("b(x) =", b)
@@ -151,5 +152,6 @@ if __name__ == "__main__":
 
     result = polymul_ntt(a, b)
     result_norm = polynomial.polymul(tuple(coeff_a[::-1]),tuple(coeff_b[::-1]))
+    result_nor = [x% 23 for x in result_norm]
     print("Result =", result)
-    print(f" with normal poly mul {result_norm}")
+    print(f" with normal poly mul {result_nor}")

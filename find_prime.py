@@ -15,4 +15,12 @@ def pr_gen(rang):
     while not prchk(x):
         x = random.randint(rang[0],rang[1])
     return x
-print(pr_gen([1,99]))
+flag = False
+for k in range (1,171):
+    if prchk(k*11+1):
+        flag = True
+        break
+if flag:
+      print(k)
+
+print(prchk(23))
