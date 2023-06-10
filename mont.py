@@ -47,13 +47,13 @@ class MontgomeryReducer:
 		
 		# Reducer
 		self.reducerbits = (mod.bit_length() // 8 + 1) * 8  # This is a multiple of 8
-		self.reducer = 1 << self.reducerbits  # This is a power of 256
+		self.reducer = 1 << self.reducerbits  # This is a power of 256 r
 		self.mask = self.reducer - 1
 		assert (self.reducer > mod) and (math.gcd(self.reducer, mod) == 1)
 		
 		# Other computed numbers
-		self.reciprocal = pow(self.reducer, -1, mod)
-		self.factor = (self.reducer * self.reciprocal - 1) // mod
+		self.reciprocal = pow(self.reducer, -1, mod)#r-1modn
+		self.factor = (self.reducer * self.reciprocal - 1) // mod#k
 		self.convertedone = self.reducer % mod
 	
 	
@@ -72,9 +72,9 @@ class MontgomeryReducer:
 		mod: int = self.modulus
 		assert (0 <= x < mod) and (0 <= y < mod)
 		product: int = x * y
-		temp: int = ((product & self.mask) * self.factor) & self.mask
-		reduced: int = (product + temp * mod) >> self.reducerbits
-		result: int = reduced if (reduced < mod) else (reduced - mod)
+		temp: int = ((product & self.mask) * self.factor) & self.mask#s
+		reduced: int = (product + temp * mod) >> self.reducerbits#t and u
+		result: int = reduced if (reduced < mod) else (reduced - mod)#c_
 		assert 0 <= result < mod
 		return result
 	

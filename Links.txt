@@ -1,0 +1,15 @@
+https://www.youtube.com/watch?v=V8jW81VaLOg
+https://www.xilinx.com/support/university/workshops.html
+https://www.google.co.in/books/edition/Fundamentals_of_Digital_Logic_with_Veril/hAqDSQAACAAJ?hl=en
+https://youtube.com/@TheVipinkmenon
+https://www.youtube.com/watch?v=IFsxQUbI6x0&list=PLcPzhUaCxlChIKDDR_WghPQ1HeK01YHpa&pp=iAQB
+https://www.nayuki.io/page/number-theoretic-transform-integer-dft
+https://github.com/jack4818/kyber-py
+https://github.com/masked-kyber-m4/mkm4
+https://github.com/pq-crystals/kyber
+https://github.com/acmert/parametric-ntt
+https://github.com/mkannwischer/polymul/tree/master/Python
+https://billatnapier.medium.com/meet-baby-kyber-part-1-generating-the-private-and-public-keys-33c93b89cf66
+https://makefiletutorial.com/
+https://github.com/sagemath/sage-windows/releases
+https://www.spyder-ide.org/
