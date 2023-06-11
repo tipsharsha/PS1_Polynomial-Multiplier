@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 
 from poly import Poly
 import common

@@ -134,10 +134,10 @@ if __name__ == "__main__":
     # n-1 is the degree of the polynomials
     # q has the condition that  ( q - 1 ) % (2n - 1) is 0, i.e. ( 2n - 1 ) is a factor of ( q - 1 )
     # Additionally, q has to be a prime
-    coeff_a = [4,5,6,7,8,9]
-    coeff_b = [2,6,9,4,3,0]
-    a = Poly(coeff_a, q=23)
-    b = Poly(coeff_b, q=23)
+    coeff_a = [-1,4,3,2]
+    coeff_b = [4,9,6,2]
+    a = Poly(coeff_a, q=29)
+    b = Poly(coeff_b, q=29)
 
     print("a(x) =", a)
     print("b(x) =", b)
@@ -152,6 +152,7 @@ if __name__ == "__main__":
 
     result = polymul_ntt(a, b)
     result_norm = polynomial.polymul(tuple(coeff_a[::-1]),tuple(coeff_b[::-1]))
-    result_nor = [x% 23 for x in result_norm]
+    result_nor = [x% 29 for x in result_norm]
     print("Result =", result)
-    print(f" with normal poly mul {result_nor}")
+    print(f" with normal poly mul {result_norm}")
+    print(f" with normal poly mul and mod q {result_nor}")

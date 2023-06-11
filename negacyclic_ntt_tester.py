@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
 
+from numpy.polynomial import polynomial 
 from poly import Poly
 import common
 
@@ -106,9 +106,10 @@ if __name__ == "__main__":
     # n-1 is the degree of the polynomials
     # q has the condition that  ( q - 1 ) % 2n is 0, i.e. 2n is a factor of ( q - 1 )
     # Additionaly, q has to be a prime number
-
-    a = Poly([3, 2, 1], q=7)
-    b = Poly([0, 1, 1], q=7)
+    coeff_a =[3, 2, 1]
+    coeff_b = [0, 1, 1]
+    a = Poly(coeff_a, q=7)
+    b = Poly(coeff_b, q=7)
 
     print("a(x) =", a)
     print("b(x) =", b)
@@ -116,8 +117,14 @@ if __name__ == "__main__":
     root = common.primitiveRootOfUnity(2*a.n, a.q)
     print("Root used =", root)
 
-    print("a(x) (evaluation domain) =", ntt_naive(a, root))
-    print("b(x) (evaluation domain) =", ntt_naive(b, root))
+    print("a(x) (evaluation domain) or NTT Domain =", ntt_naive(a, root))
+    print("b(x) (evaluation domain) or NTT Domain =", ntt_naive(b, root))
+    # print("a(x) (evaluation domain) or NTT Domain without padding =", ntt_naive_nopad(a, root))
+    # print("b(x) (evaluation domain) or NTT Domain withut padding=", ntt_naive_nopad(b, root))
 
     result = polymul_negacyclic_ntt(a, b)
+    result_norm = polynomial.polymul(tuple(coeff_a[::-1]),tuple(coeff_b[::-1]))
+    result_nor = [x% 7 for x in result_norm]
     print("Result =", result)
+    print(f" with normal poly mul {result_norm}")
+    print(f" with normal poly mul and mod q {result_nor}")

@@ -23,4 +23,4 @@ for k in range (1,171):
 if flag:
       print(k)
 
-print(prchk(23))
+print(prchk(29))
