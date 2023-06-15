@@ -1,1 +1,1 @@
-from numpy.polynomial import polynomial 
+gen_data = pandas.DataFrame(gen)
